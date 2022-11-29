@@ -1,0 +1,20 @@
+import typescript from '@rollup/plugin-typescript';
+import dts from 'rollup-plugin-dts';
+
+/**
+ * @type {import('rollup').RollupOptions}
+ */
+const config = {
+  input: 'src/index.ts',
+  output: [
+    { format: 'cjs', file: 'dist/index.cjs.js' },
+    { format: 'esm', file: 'dist/index.esm.js' },
+    { format: 'umd', file: 'dist/index.umd.js', name: 'iivu_utils',globals: { vant: 'vant' } },
+  ],
+  external: ['vant'],
+  plugins: [
+    typescript(),
+  ],
+};
+
+export default config;
