@@ -1,6 +1,6 @@
 {
   "name": "@iivu/utils",
-  "version": "0.0.2",
+  "version": "2.0.0",
   "description": "Private FE development tool library base on Vant.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -23,7 +23,7 @@
   "author": "LeoCheung <leozhang621@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "vant": "^3.0.0"
+    "vant": "^4.0.11"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^10.0.1",
@@ -31,8 +31,10 @@
     "tslib": "^2.4.1",
     "typescript": "^4.9.3"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "vant": "^3.0.0"
-  },
-  "files": ["dist"]
+    "vant": "^4.0.11"
+  }
 }

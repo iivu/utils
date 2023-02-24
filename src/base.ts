@@ -1,7 +1,12 @@
-import { Toast, Dialog } from 'vant';
+import {
+  setToastDefaultOptions,
+  showDialog,
+  showLoadingToast,
+  closeToast,
+} from 'vant';
 
 let hideLoadingTimer: number | null = null;
-Toast.setDefaultOptions('loading', { forbidClick: true, duration: 0 });
+setToastDefaultOptions('loading', { forbidClick: true, duration: 0 });
 
 export function randomValue(min: number, max: number): number {
   const t = max - min;
@@ -20,11 +25,11 @@ export function px2rem(px: number): number {
 
 export function showLoading(message = '加载中...') {
   clearTimeout(hideLoadingTimer as number);
-  Toast.loading({ message });
+  showLoadingToast({ message });
 }
 
 export function hideLoading() {
-  hideLoadingTimer = window.setTimeout(() => Toast.clear(), 100);
+  hideLoadingTimer = window.setTimeout(() => closeToast(), 100);
 }
 
 export function showToast(message: string) {
@@ -33,7 +38,7 @@ export function showToast(message: string) {
 }
 
 export function showModal(message: string, cb?: () => void) {
-  Dialog.alert({ message }).then(() => {
+  showDialog({ title: '提示', message }).then(() => {
     cb && cb();
   });
 }
