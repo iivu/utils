@@ -23,6 +23,20 @@ export function px2rem(px: number): number {
   return px / 100;
 }
 
+export function rem2px(rem: number): number {
+  let htmlFontSize = 16;
+  if (window.getComputedStyle) {
+    htmlFontSize = parseFloat(window.getComputedStyle(document.documentElement, null)['fontSize']);
+    // @ts-ignore
+  } else if (document.documentElement.currentStyle) {
+    // @ts-ignore
+    htmlFontSize = document.documentElement.currentStyle['fontSize'];
+  } else {
+    htmlFontSize = 16;
+  }
+  return rem * htmlFontSize;
+}
+
 export function showLoading(message = '加载中...') {
   clearTimeout(hideLoadingTimer as number);
   showLoadingToast({ message });
