@@ -1,6 +1,6 @@
 {
   "name": "@iivu/utils",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Private FE development tool library base on Vant.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
