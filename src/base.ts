@@ -3,6 +3,7 @@ import {
   showDialog,
   showLoadingToast,
   closeToast,
+  showToast as showVantToast,
 } from 'vant';
 
 let hideLoadingTimer: number | null = null;
@@ -48,7 +49,7 @@ export function hideLoading() {
 
 export function showToast(message: string) {
   // @ts-ignore
-  Toast({ message, forbidClick: false });
+  showVantToast({ message, forbidClick: false });
 }
 
 export function showModal(message: string, cb?: () => void) {
