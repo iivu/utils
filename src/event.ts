@@ -14,12 +14,12 @@ class EventCenter {
     }
   }
 
-  off(event: string, handler: EventHandler) {
+  off(event: string, handler?: EventHandler) {
     if (!handler && this.eventQueue[event]) {
       delete this.eventQueue[event];
       return;
     }
-    if (this.eventQueue[event]) {
+    if (this.eventQueue[event] && handler) {
       this.eventQueue[event].splice(this.eventQueue[event].indexOf(handler) >>> 0, 1);
     }
   }
