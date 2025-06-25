@@ -1,7 +1,3 @@
-export function validateTelephone(tel: string): boolean {
-  return /^1[3456789]\d{9}$/.test(tel);
-}
-
 function validateIDCardProvince(code: string) {
   const pattern = /^[1-9][0-9]/;
   const provinces = {
@@ -116,8 +112,24 @@ export function validateIDCard(IDCard: string): boolean {
   return false;
 }
 
+/**
+ * 验证邮箱地址是否符合格式
+ * 
+ * @param {string} email 邮箱地址
+ * @returns {boolean}
+ */
 export function validateEmail(email: string): boolean {
   return /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
     email
   );
+}
+
+/**
+ * 验证手机号码是否符合中国大陆的格式
+ * 
+ * @param {string} tel 电话号码
+ * @returns {boolean}
+ */
+export function validateTelephone(tel: string): boolean {
+  return /^1[3456789]\d{9}$/.test(tel);
 }

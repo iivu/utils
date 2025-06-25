@@ -1,6 +1,11 @@
-export function isWeixinBrowser() {
+export function isWechatBrowser() {
   const ua = window.navigator.userAgent.toLowerCase();
   return /micromessenger/.test(ua);
+}
+
+export function isWechatMiniProgram() {
+  const ua = window.navigator.userAgent.toLowerCase();
+  return /miniProgram/i.test(ua);
 }
 
 export function isIOS() {

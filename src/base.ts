@@ -1,14 +1,3 @@
-import {
-  setToastDefaultOptions,
-  showDialog,
-  showLoadingToast,
-  closeToast,
-  showToast as showVantToast,
-} from 'vant';
-
-let hideLoadingTimer: number | null = null;
-setToastDefaultOptions('loading', { forbidClick: true, duration: 0 });
-
 export function randomValue(min: number, max: number): number {
   const t = max - min;
   return Math.floor(Math.random() * t + min);
@@ -36,26 +25,6 @@ export function rem2px(rem: number): number {
     htmlFontSize = 16;
   }
   return rem * htmlFontSize;
-}
-
-export function showLoading(message = '加载中...') {
-  clearTimeout(hideLoadingTimer as number);
-  showLoadingToast({ message });
-}
-
-export function hideLoading() {
-  hideLoadingTimer = window.setTimeout(() => closeToast(), 100);
-}
-
-export function showToast(message: string) {
-  // @ts-ignore
-  showVantToast({ message, forbidClick: false });
-}
-
-export function showModal(message: string, cb?: () => void) {
-  showDialog({ title: '提示', message }).then(() => {
-    cb && cb();
-  });
 }
 
 export function loadImage(url: string): Promise<HTMLImageElement> {
